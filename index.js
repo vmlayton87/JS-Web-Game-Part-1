@@ -10,6 +10,32 @@ function newImage (source, left, bottom) {
     return name
 }
 
+// Bonus: Sky and Grass Images 
+
+
+function background (source, start, stop) {
+  
+  for (height = 0; height < stop/100; height++) {
+    newImage(source, 0, start)
+          
+    for (left = 0; left < window.innerWidth; left++) {
+      newImage(source, left, start)
+      
+         left = left + 99
+      
+    }
+    start = start + 99
+}
+}
+
+//let horizon = window.innerHeight*0.65 // Use this horizon variable for percentage of screen based horizon. Change decimal to change where the horizon is. (it is a percentage from the bottom of the screen)
+
+let horizon = 500 //use this for pixel based horizon
+
+background('assets/grass.png', 0, horizon)
+background('assets/sky.png', horizon, window.innerHeight)
+
+
 
 //  Images
 
@@ -35,22 +61,3 @@ newItem('assets/sword.png', 500, 405)
 newItem('assets/shield.png', 165, 185)
 newItem('assets/staff.png', 600, 100)
 
-// Bonus: Sky and Grass Images 
-
-/* Plan to mess with this more later. 
-
-function background (source, heightRepeat) {
-    for (left = 0; left < window.innerWidth; left++) {
-      newImage(source, left, 0)
-      
-      for (height = 0; height < heightRepeat*100; height++) {
-        newImage(source, left, height)
-        height = height + 99
-      }
-      left = left + 99
-    }
-  }
-  
-  background('assets/grass.png', 5)
-  
-  */
